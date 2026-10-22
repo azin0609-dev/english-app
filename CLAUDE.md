@@ -20,7 +20,8 @@
 
 ## 啟動與測試
 
-- 本機：雙擊 `start.bat` → 開啟 `http://localhost:8000`（用 `tools/server.ps1`，Windows 內建 PowerShell，免安裝）
+- 雲端（平常使用）：https://azin0609-dev.github.io/english-app/ （電腦、手機都能開；手機可「加到主畫面」當 App）
+- 本機（開發測試）：雙擊 `start.bat` → 開啟 `http://localhost:8000`（用 `tools/server.ps1`，Windows 內建 PowerShell，免安裝）
 - 不能直接雙擊 `index.html`：瀏覽器不允許 file:// 讀取 `data/*.json` 與載入模組
 - 自動檢查：`http://localhost:8000/tests/tests.html`（純邏輯測試，不碰使用者資料）
 - 測試日期：網址加 `?today=2026-10-25`（例：`http://localhost:8000/?today=2026-10-25#/`）可模擬其他日期，畫面上方會顯示測試模式提示。注意：會把當天任務重新排在那個日期
@@ -121,6 +122,16 @@ tests/                  自動檢查頁（tests.html + tests.js）
 - 能力值 = 該類題目平均 level ÷ 5 × 100（口說只算句庫與練過的故事句）
 - 徽章 14 個，定義在 `BADGES`，條件在 `qualifiedBadges()`
 
+## 部署（GitHub Pages）
+
+- 儲存庫：https://github.com/azin0609-dev/english-app （公開；`main` 分支根目錄直接當網站）
+- 網站：https://azin0609-dev.github.io/english-app/
+- 更新網站：改完檔案後 `git add -A` → `git commit` → `git push`，GitHub 約 1～2 分鐘自動重新建置。`sw.js` 是網路優先，使用者重新整理就會拿到新版
+- 工具：Git（`C:\Program Files\Git`）、GitHub CLI `gh`（`C:\Program Files\GitHub CLI`，已登入 azin0609-dev）。剛裝好時目前的 PowerShell 可能找不到，先執行 `$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')`
+- Windows PowerShell 5.1 呼叫 `gh api` 時，`--jq` 運算式或用管線傳 JSON 會壞掉；改用 `-f 'key=value'` 欄位，或把輸出交給 `ConvertFrom-Json`
+- 隱私：commit 用 GitHub 匿名 Email（`<id>+azin0609-dev@users.noreply.github.com`）；`CLAUDE.local.md`、`.claude/`、備份檔都在 `.gitignore`，不會上傳
+- 雲端網址和本機網址（localhost:8000）的資料是分開的兩份，要靠匯出／匯入搬移
+
 ## 擴充題目
 
 在 `data/` 對應的 JSON 檔最後面加一筆，用新的 id（例如 `v061`、`g021`、`s021`），格式照上面。JSON 最後一筆後面不能有逗號。加完重新整理頁面即可；新題會在今日任務裡當「新題」出現。
@@ -139,7 +150,7 @@ tests/                  自動檢查頁（tests.html + tests.js）
 - [x] 首頁今日任務（依到期數與弱點排程）、連續天數、本週時間、14 天正確率趨勢圖
 - [x] 角色養成：經驗值、等級、5 階職稱與角色外觀、能力雷達圖、14 個徽章、升級動畫
 - [x] 自動檢查頁（46 項）
-- [ ] 上雲端（GitHub Pages）：等使用者註冊 GitHub 帳號、安裝 Git 後進行
+- [x] 上雲端：GitHub Pages（2026-10-22），雲端版 46 項自動檢查通過
 
 ### 第二階段（待做）
 - [ ] 聽力應答（Part 2 型）：朗讀問句、三選一、速度 0.8x／1.0x
