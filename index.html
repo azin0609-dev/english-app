@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f5fae">
+  <meta name="description" content="個人英文特訓：多益與外商企業安全職面試">
+  <title>英語特訓</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/" class="brand">英語特訓</a>
+    <div class="topbar-right">
+      <a href="#/profile" id="top-level" class="chip xp-chip" aria-label="角色等級"></a>
+      <a href="#/settings" class="icon-btn" aria-label="設定" title="設定">⚙️</a>
+    </div>
+  </header>
+
+  <div id="banner-root"></div>
+  <main id="app" class="container" tabindex="-1">
+    <p class="muted center">載入中…</p>
+  </main>
+
+  <nav class="tabbar" aria-label="主要功能">
+    <a href="#/" data-tab="home"><span class="tab-icon">🏠</span><span>首頁</span></a>
+    <a href="#/toeic" data-tab="toeic"><span class="tab-icon">📘</span><span>多益</span></a>
+    <a href="#/interview" data-tab="interview"><span class="tab-icon">🎤</span><span>面試</span></a>
+    <a href="#/profile" data-tab="profile"><span class="tab-icon">🛡️</span><span>角色</span></a>
+  </nav>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <div id="modal-root"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

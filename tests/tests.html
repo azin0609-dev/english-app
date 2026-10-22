@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自動檢查</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .t-ok { color: var(--ok); }
+    .t-bad { color: var(--bad); }
+    .t-row { padding: 4px 0; border-bottom: 1px solid var(--border); font-size: .92rem; }
+    .t-msg { color: var(--bad); font-size: .85rem; margin-left: 1.6em; }
+  </style>
+</head>
+<body style="padding-bottom:16px">
+  <main class="container">
+    <h1>🧪 自動檢查</h1>
+    <p class="muted">檢查複習規則、跟讀比對、今日任務排程、統計、經驗值與備份格式是否正確。這個頁面不會動到你的練習資料。</p>
+    <div id="summary" class="card">執行中……</div>
+    <div id="out"></div>
+    <p><a href="../index.html">← 回到 App</a></p>
+  </main>
+  <script type="module" src="tests.js"></script>
+</body>
+</html>
