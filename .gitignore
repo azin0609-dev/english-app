@@ -1,0 +1,6 @@
+# 本機開發設定（含電腦路徑），不上傳
+.claude/
+# 個人背景說明，只留在本機
+CLAUDE.local.md
+# 匯出的備份檔有你的財務數字，不要放進專案
+invest-backup-*.json
